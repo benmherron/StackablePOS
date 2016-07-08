@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <parameter name="browser" value="ie"/>
+  <test name="firefoxTest(failed)">
+    <parameter name="browser" value="firefox"/>
+    <classes>
+      <class name="DDT.StackableCheck">
+        <methods>
+          <include name="stackableScript"/>
+        </methods>
+      </class> <!-- DDT.StackableCheck -->
+    </classes>
+  </test> <!-- firefoxTest(failed) -->
+  <test name="chromeTest(failed)">
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="DDT.StackableCheck">
+        <methods>
+          <include name="stackableScript"/>
+        </methods>
+      </class> <!-- DDT.StackableCheck -->
+    </classes>
+  </test> <!-- chromeTest(failed) -->
+  <test name="IETest(failed)">
+    <parameter name="browser" value="ie"/>
+    <classes>
+      <class name="DDT.StackableCheck">
+        <methods>
+          <include name="stackableScript"/>
+        </methods>
+      </class> <!-- DDT.StackableCheck -->
+    </classes>
+  </test> <!-- IETest(failed) -->
+</suite> <!-- Failed suite [Suite] -->
