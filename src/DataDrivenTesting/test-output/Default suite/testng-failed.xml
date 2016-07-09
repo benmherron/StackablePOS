@@ -3,12 +3,12 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="DDT.StackableCheck">
+      <class name="DDT.StackableCheckPOS">
         <methods>
           <include name="tearDown"/>
-          <include name="stackableScript" invocation-numbers="0"/>
+          <include name="stackableScript" invocation-numbers="0 1"/>
         </methods>
-      </class> <!-- DDT.StackableCheck -->
+      </class> <!-- DDT.StackableCheckPOS -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

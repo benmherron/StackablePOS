@@ -6,6 +6,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -15,10 +16,12 @@ import org.testng.annotations.Test;
 
 import lib.ExcelDataConfig;
 
-public class StackableCheck 
+public class StackableCheckPOS 
 {
 	
 	WebDriver driver;
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+	
 		@Test(dataProvider="StackablePartCheck")
 		public void stackableScript(String warrantyCode, String addonCodeList) throws InterruptedException
 		{		
@@ -28,6 +31,9 @@ public class StackableCheck
 		System.out.println("$$$$$$$$$$$$$$$$$$$          "+ warrantyCode + " Testing" + "       $$$$$$$$$$$$$$$$$$$$");
 		System.out.println("****************************************************************************************");
 		System.out.println("****************************************************************************************");
+		
+		System.out.println(warrantyCode);
+		System.out.println(addonCodeList);
 			
 			
 		//Start Test//	
@@ -43,36 +49,33 @@ public class StackableCheck
         //Navigate to Warranties
 		driver.findElement(By.id("view-customize")).click();	
 		driver.findElement(By.xpath("//div[@id='tab-customize']/div[2]/div[2]/ol/li/div[3]/div[3]/div/a")).click();
-		driver.findElement(By.cssSelector("#WARRANTY > span")).click();	
-		//Call MA_Values
-//		driver.findElement(By.xpath("//section[@id='warr_term']/div/div[2]/div[2]/ul/li[3]/label/div/span[1]")).click();
-//		System.out.println("found, clicked button");	
-//		System.out.println(addonCodeList);
-		
-		
-		
+		driver.findElement(By.cssSelector("#WARRANTY > span")).click();		
+		Thread.sleep(3000);
+		System.out.println("1");	
 		//Test 1 Begin //
+		driver.findElement(By.cssSelector("." + warrantyCode + " label")).click();
+		Thread.sleep(3000);
+		
+		System.out.println("2");
+			
+	//	driver.findElement(By.xpath("//input[@class='O4Y']")).click();	
 		System.out.println("");
 		System.out.println("...mapping webparts to excel parts...");
 		System.out.println("");
 	    String addOns = addonCodeList;	  
 	    String[] items = addOns.split(",");	    	  
 	    List<String> itemList = Arrays.asList(items);	 
-	    List<WebElement> myList=driver.findElements(By.cssSelector("#warrServices .stackableHeader > span"));
-	    List<String> stackablePartList=new ArrayList<>();
-	    
+	    List<WebElement> myList=driver.findElements(By.cssSelector("#warrServices .stackableHeader a  span"));
+	    List<String> stackablePartList=new ArrayList<>();	    	    
 	    for(int i=0; i<myList.size(); i++)
 	    {	
 	    	String str = myList.get(i).getText();
-//	    	System.out.println(str);	
 	    	str = str.substring(str.lastIndexOf(' ') + 1);  
-//	    	System.out.println("After substring: " + str);
-	    	stackablePartList.add(str);
+	    	stackablePartList.add(str + "3");
 	    	if(itemList.contains(str)) {
 	    		System.out.println("Match Found for Web Part Number: " + str);	
 	    	}else{
-	    		System.out.println("No Match Found for Web Part Number: " + str);
-	    		    		
+	    		System.out.println("No Match Found for Web Part Number: " + str);	    		    		
 	    	}
 	    }
 	    

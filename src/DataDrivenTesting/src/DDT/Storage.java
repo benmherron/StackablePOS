@@ -1,11 +1,11 @@
 package DDT;
 
-import java.util.List;
+//import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-public class Storage {
+//public class Storage {
 
 	//driver=new FirefoxDriver();
 	

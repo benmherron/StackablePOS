@@ -1,35 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
-  <parameter name="browser" value="ie"/>
-  <test name="firefoxTest(failed)">
-    <parameter name="browser" value="firefox"/>
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
     <classes>
-      <class name="DDT.StackableCheck">
+      <class name="DDT.StackableCheckPOS">
         <methods>
-          <include name="stackableScript"/>
+          <include name="tearDown"/>
+          <include name="stackableScript" invocation-numbers="0 1"/>
         </methods>
-      </class> <!-- DDT.StackableCheck -->
+      </class> <!-- DDT.StackableCheckPOS -->
     </classes>
-  </test> <!-- firefoxTest(failed) -->
-  <test name="chromeTest(failed)">
-    <parameter name="browser" value="chrome"/>
-    <classes>
-      <class name="DDT.StackableCheck">
-        <methods>
-          <include name="stackableScript"/>
-        </methods>
-      </class> <!-- DDT.StackableCheck -->
-    </classes>
-  </test> <!-- chromeTest(failed) -->
-  <test name="IETest(failed)">
-    <parameter name="browser" value="ie"/>
-    <classes>
-      <class name="DDT.StackableCheck">
-        <methods>
-          <include name="stackableScript"/>
-        </methods>
-      </class> <!-- DDT.StackableCheck -->
-    </classes>
-  </test> <!-- IETest(failed) -->
-</suite> <!-- Failed suite [Suite] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->
